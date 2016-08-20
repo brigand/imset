@@ -11,16 +11,50 @@
 ## Install
 
 ```sh
-npm i -D imset
+npm i -S imset
 ```
 
 ## Usage
 
+imset gives you a nice syntax for immutable updates. Unlike a deep clone, it
+only clones objects as needed.
+
+Let's start with a simple object.
+
 ```js
 import imset from "imset"
 
-imset() // true
+var o = {
+  x: {
+    y: [1],
+    z: 2,
+  }
+};
 ```
+
+We can set a single property on it with an assignment operator. The operators `=`,
+`+=`, `++`, and similar are supported.
+
+```js
+imset`${o}.x.z = 3`;
+```
+
+Any part of this expression can be dynamic.
+
+```js
+var key = 'x';
+var value = 3;
+imset`${o}.${key}.z = ${value}`;
+```
+
+We can also call methods, for example to manipulate arrays.
+
+```js
+imset`${o}.x.y.push(1, 2, 3)`
+imset`${o}.x.y.splice(${index}, 1)`
+```
+
+That's all there is to it. Enjoy!
 
 ## License
 
