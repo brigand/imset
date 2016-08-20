@@ -54,6 +54,23 @@ imset`${o}.x.y.push(1, 2, 3)`
 imset`${o}.x.y.splice(${index}, 1)`
 ```
 
+## Performance
+
+There is some string parsing to understand the expressions, but it's very light.
+In addition, it's only done once for a given operation, and then cached. So with
+the following, it'd only parse the string once, despite the dynamic parts being
+different.
+
+```js
+imset`${a}.b = ${c}`;
+imset`${x}.b = ${y}`;
+```
+
+The rest of the computation is pretty trivial. It's shallow clones along a path
+like you'd get in any immutable update tool.
+
+---
+
 That's all there is to it. Enjoy!
 
 ## License

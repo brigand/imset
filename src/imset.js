@@ -1,9 +1,19 @@
 import {joinWithPlaceholders} from './templateUtils';
 import process from './process';
 
+// this caches the processed template string
+var cache = {};
+
 module.exports = function imset(strings, ...values) {
   var {string, map} = joinWithPlaceholders(strings, values);
-  var stuff = process(string);
+  var stuff;
+  if (cache[string]) {
+    stuff = cache[string];
+  }
+  else {
+    stuff = process(string);
+    cache[string] = stuff;
+  }
   var {propertyAccess} = stuff;
 
   // clone along the path
