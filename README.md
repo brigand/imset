@@ -66,7 +66,7 @@ imset`${a}.b = ${c}`;
 imset`${x}.b = ${y}`;
 ```
 
-The rest of the computation is pretty trivial. It's shallow clones along a path
+The rest of the computation is pretty trivial. It shallow clones along a path
 like you'd get in any immutable update tool.
 
 ---
