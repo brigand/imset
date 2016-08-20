@@ -1,6 +1,6 @@
 {
   "name": "imset",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "immutable updates that look mutable with template strings",
   "main": "dist/index.js",
   "files": [
