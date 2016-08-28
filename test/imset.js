@@ -47,5 +47,17 @@ test("imset", (t) => {
     t.end();
   });
 
+  t.test('simple with number literal', (t) => {
+    var a = {x: 1};
+    var ic = prepareImmutableCheck(a);
+    var b = imset`${a}.x = 5`;
+    t.deepEqual(b, {x: 5});
+    ic();
+    t.end();
+  });
+
+
+
+
 });
 
