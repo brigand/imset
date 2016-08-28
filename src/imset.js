@@ -102,15 +102,16 @@ function stringToValue(string, namesToValues) {
   var first = string[0];
   var last = string[string.length - 1];
   var middle = string.slice(1, -1);
+  var json = string;
   if (first === '"' || first === '\'' && first === last) {
     if (first === '\'') {
-      var json = '"' + middle.replace(/"/g, '\\"') + '"';
-      try {
-        return JSON.parse(json);
-      }
-      catch (e) {
-        fail();
-      }
+      json = '"' + middle.replace(/"/g, '\\"') + '"';
+    }
+    try {
+      return JSON.parse(json);
+    }
+    catch (e) {
+      fail();
     }
   }
   fail();

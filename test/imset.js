@@ -15,7 +15,6 @@ test("imset", (t) => {
     var a = {x: 1};
     var ic = prepareImmutableCheck(a);
     var b = imset`${a}.x = 2`;
-    t.equal(a.x, 1);
     t.deepEqual(b, {x: 2});
     ic();
     t.end();
@@ -25,8 +24,25 @@ test("imset", (t) => {
     var a = {x: {y: [1]}};
     var ic = prepareImmutableCheck(a);
     var b = imset`${a}.x.y.push(2)`;
-    t.deepEqual(a.x.y, [1]);
     t.deepEqual(b, {x: {y: [1, 2]}});
+    ic();
+    t.end();
+  });
+
+  t.test('simple with string literal single quotes', (t) => {
+    var a = {x: 1};
+    var ic = prepareImmutableCheck(a);
+    var b = imset`${a}.x = 'foo'`;
+    t.deepEqual(b, {x: 'foo'});
+    ic();
+    t.end();
+  });
+
+  t.test('simple with string literal double quotes', (t) => {
+    var a = {x: 1};
+    var ic = prepareImmutableCheck(a);
+    var b = imset`${a}.x = "foo"`;
+    t.deepEqual(b, {x: 'foo'});
     ic();
     t.end();
   });
