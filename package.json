@@ -55,6 +55,7 @@
     "doctoc": "*",
     "eslint": "*",
     "isparta": "*",
+    "lodash": "^4.15.0",
     "rimraf": "*",
     "tap-spec": "*",
     "tape": "*",
