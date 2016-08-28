@@ -99,6 +99,13 @@ function stringToValue(string, namesToValues) {
     throw new Error('only a literal {} is supported, with no properties');
   }
 
+  if (string === 'false') {
+    return false;
+  }
+  else if (string === 'true') {
+    return true;
+  }
+
   var first = string[0];
   var last = string[string.length - 1];
   var middle = string.slice(1, -1);

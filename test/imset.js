@@ -56,8 +56,22 @@ test("imset", (t) => {
     t.end();
   });
 
+  t.test('simple with boolean true', (t) => {
+    var a = {x: 1};
+    var ic = prepareImmutableCheck(a);
+    var b = imset`${a}.x = true`;
+    t.deepEqual(b, {x: true});
+    ic();
+    t.end();
+  });
 
-
-
+  t.test('simple with boolean false', (t) => {
+    var a = {x: 1};
+    var ic = prepareImmutableCheck(a);
+    var b = imset`${a}.x = false`;
+    t.deepEqual(b, {x: false});
+    ic();
+    t.end();
+  });
 });
 
