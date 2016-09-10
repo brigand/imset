@@ -1,5 +1,7 @@
 # imset
 
+## Note: there are currently critical bugs which I will address soon, don't use it for now
+
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
