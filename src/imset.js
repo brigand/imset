@@ -34,6 +34,9 @@ module.exports = function imset(strings, ...values) {
 
   if (stuff.type === 'set') {
     var lastProperty = propertyAccess[propertyAccess.length - 1];
+    if (map[lastProperty]) {
+      lastProperty = map[lastProperty];
+    }
     var value;
 
     // we don't need the value for increment/decrement
@@ -123,5 +126,3 @@ function stringToValue(string, namesToValues) {
   }
   fail();
 }
-
-

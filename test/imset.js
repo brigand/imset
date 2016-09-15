@@ -20,6 +20,16 @@ test("imset", (t) => {
     t.end();
   });
 
+  t.test('set with dynamic path', (t) => {
+    var a = {x: {y: 1}};
+    var ic = prepareImmutableCheck(a);
+    var b = imset`${a}.${'x'}.${'y'} = 2`;
+    t.deepEqual(b, {x: {y: 2}});
+    ic();
+    t.end();
+  });
+
+
   t.test('simple method', (t) => {
     var a = {x: {y: [1]}};
     var ic = prepareImmutableCheck(a);
@@ -74,4 +84,3 @@ test("imset", (t) => {
     t.end();
   });
 });
-
