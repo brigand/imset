@@ -1,6 +1,6 @@
 # imset
 
-## Note: there are currently critical bugs which I will address soon, don't use it for now
+## Note: this project is low on tests currently, so use at your own risk
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
